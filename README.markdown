@@ -9,7 +9,9 @@ Installation
 To install the extension use this command:
 
 script/extension install git://github.com/joshnuss/spree_faq.git
+
 rake db:migrate
+
 rake spree:extensions:spree_faq:update
 
 Viewing FAQs
