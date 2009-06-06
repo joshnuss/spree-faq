@@ -14,6 +14,11 @@ Next you need to copy some resources to your public folder:
 
 rake spree:extensions:spree_faq:update
 
+Viewing FAQs
+============
+
+http://yourdomain.tld/faqs
+
 Editing FAQs
 ===========
 
