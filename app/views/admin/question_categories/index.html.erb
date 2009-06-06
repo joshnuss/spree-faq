@@ -1,0 +1,36 @@
+<div class='toolbar'>
+    <ul class='actions'>
+      <li id="new_ot_link">
+        <%= button_link_to_remote "New Category", 
+                                   {:url => new_object_url,
+                                    :method => :get,
+                                    :update => "new-category",
+                                    :before => "Element.hide('new_ot_link');Element.show('busy_indicator')",
+                                    :complete => "Element.hide('busy_indicator')"}, :icon => 'add' %>
+      </li> 
+    </ul>
+  <br class='clear' />
+</div>
+<%= image_tag "spinner.gif", :plugin=>"spree", :style => "display:none", :id => 'busy_indicator' %>
+<div id="new-category"></div>
+
+<h1>Question Categories</h1>
+<table class="index">
+  <thead>
+    <th>Category</td>
+    <th>Questions</td>
+    <th>&nbsp;</th>
+  </tr>
+  <thead>
+<% @question_categories.each do |category| %>
+  <tr> 
+    <td><%= h category.name %></td>
+    <td><%= category.questions.count %></td>
+    <td class="actions">
+      <%= link_to_edit category.id %>&nbsp;
+      <%= link_to_delete category.id %>
+    </td>
+  </tr>
+<% end %> 
+  </tbody>
+</table>

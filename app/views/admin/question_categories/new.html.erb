@@ -1,0 +1,11 @@
+<%= error_messages_for :question_category %>
+<% form_for @question_category, :url => collection_path do |f| %>
+  <fieldset>
+      <% f.field_container :name do %>
+          <%= f.label :name, t("name") %> <span class="required">*</span><br />
+          <%= f.text_field :name, :class => 'fullwidth title'  %>  
+          <%= f.error_message_on :name %>
+      <% end %>
+      <%= f.submit "Create Category" %>
+  </fieldset>
+<% end %>
