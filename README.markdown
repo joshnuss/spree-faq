@@ -1,4 +1,4 @@
-Spree Faq
+Spree Frequently Asked Question Extension
 =========
 
 An spree extension for managing FAQs
