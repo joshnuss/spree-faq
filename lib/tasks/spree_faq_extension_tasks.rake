@@ -25,7 +25,7 @@ namespace :spree do
       end  
 
       desc "Loads sample FAQ questions"
-      task :load_sample => :environment do
+      task :load_samples => :environment do
         sales    = QuestionCategory.create! :name => 'Sales'
         shipping = QuestionCategory.create! :name => 'Shipping'
         billing  = QuestionCategory.create! :name => 'Billing'
