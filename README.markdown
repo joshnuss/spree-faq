@@ -1,4 +1,4 @@
-= Spree Faq
+== Spree Faq
 
 An spree extension for managing FAQs
 
