@@ -3,20 +3,20 @@ namespace :db do
   task :bootstrap  => :environment do
     # load initial database fixtures (in db/sample/*.yml) into the current environment's database
     ActiveRecord::Base.establish_connection(RAILS_ENV.to_sym)
-    Dir.glob(File.join(SpreeFaqExtension.root, "db", 'sample', '*.{yml,csv}')).each do |fixture_file|
-      Fixtures.create_fixtures("#{SpreeFaqExtension.root}/db/sample", File.basename(fixture_file, '.*'))
+    Dir.glob(File.join(FaqExtension.root, "db", 'sample', '*.{yml,csv}')).each do |fixture_file|
+      Fixtures.create_fixtures("#{FaqExtension.root}/db/sample", File.basename(fixture_file, '.*'))
     end
   end
 end
 
 namespace :spree do
   namespace :extensions do
-    namespace :spree_faq do
+    namespace :faq do
       desc "Copies public assets of the Spree Faq to the instance public/ directory."
       task :update => :environment do
         is_svn_git_or_dir = proc {|path| path =~ /\.svn/ || path =~ /\.git/ || File.directory?(path) }
-        Dir[SpreeFaqExtension.root + "/public/**/*"].reject(&is_svn_git_or_dir).each do |file|
-          path = file.sub(SpreeFaqExtension.root, '')
+        Dir[FaqExtension.root + "/public/**/*"].reject(&is_svn_git_or_dir).each do |file|
+          path = file.sub(FaqExtension.root, '')
           directory = File.dirname(path)
           puts "Copying #{path}..."
           mkdir_p RAILS_ROOT + directory

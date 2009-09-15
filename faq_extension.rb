@@ -1,7 +1,7 @@
 # Uncomment this if you reference any of your controllers in activate
 # require_dependency 'application'
 
-class SpreeFaqExtension < Spree::Extension
+class FaqExtension < Spree::Extension
   version "1.0"
   description "Describe your extension here"
   url "http://yourwebsite.com/spree_faq"

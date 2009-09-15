@@ -12,7 +12,7 @@ script/extension install git://github.com/joshnuss/spree_faq.git
 
 rake db:migrate
 
-rake spree:extensions:spree_faq:update
+rake spree:extensions:faq:update
 
 Viewing FAQs
 ============
@@ -29,4 +29,4 @@ Editing FAQs
 Loading Sample FAQs
 =============
 
-rake spree:extensions:spree_faq:load_samples
+rake spree:extensions:faq:load_samples
