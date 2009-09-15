@@ -17,7 +17,7 @@ rake spree:extensions:faq:update
 Viewing FAQs
 ============
 
-http://yourdomain.tld/faqs
+http://yourdomain.tld/faq
 
 Editing FAQs
 ===========
