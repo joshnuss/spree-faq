@@ -1,4 +1,4 @@
-namespace :db do
+  namespace :db do
   desc "Bootstrap your database for Spree."
   task :bootstrap  => :environment do
     # load initial database fixtures (in db/sample/*.yml) into the current environment's database
@@ -30,7 +30,7 @@ namespace :spree do
         shipping = QuestionCategory.create! :name => 'Shipping'
         billing  = QuestionCategory.create! :name => 'Billing'
 
-        sales.questions << Question.new(:question => 'Who much does it cost?', 
+        sales.questions << Question.new(:question => 'How much does it cost?', 
                                         :answer => 'Contact customer support')
         sales.questions << Question.new(:question => 'Does it do X?', 
                                         :answer => 'Duh')
