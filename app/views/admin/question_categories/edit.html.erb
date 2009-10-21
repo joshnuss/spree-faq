@@ -13,8 +13,9 @@
             $(this).parent('.question').remove();
           });
           $.scrollTo(jQuery('#questions .question:last'), 800);
+          $('.question:last input:first').focus();
         });
-        $('#tasks .remove').click(function() { 
+        $('#questions .remove').click(function() { 
           $(this).parent('.question').children(':hidden[id$=delete]').val(1);
           $(this).parent('.question').slideUp('slow');
         });
