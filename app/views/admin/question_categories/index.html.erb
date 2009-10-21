@@ -1,7 +1,7 @@
 <div class='toolbar'>
     <ul class='actions'>
       <li id="new_ot_link">
-        <%= button_link_to_remote "New Category", 
+        <%= button_link_to_remote t("new_question_category"), 
                          {:url => new_object_url, 
                          :method => :get,
                          :update => "new-category"}, :icon => 'add' %>
@@ -15,8 +15,8 @@
 <h1>Question Categories</h1>
 <table class="index">
   <thead>
-    <th>Category</td>
-    <th>Questions</td>
+    <th><%= t("category") %></td>
+    <th><%= t("questions") %></td>
     <th>&nbsp;</th>
   </tr>
   <thead>

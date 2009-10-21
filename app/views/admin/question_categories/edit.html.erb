@@ -24,14 +24,14 @@
     <div class="yui-u first">
 
       <% f.field_container :name do %>
-          <%= f.label :name, "Category Name" %> <span class="required">*</span><br />
+          <%= f.label :name, t("category_name") %> <span class="required">*</span><br />
           <%= f.text_field :name, :class => 'fullwidth title'  %>  
           <%= f.error_message_on :name %>
       <% end %>
 
       <div id="questions">
         <h2>Questions</h2>
-        <%= link_to_with_icon 'add', 'Add Question', '#', :id => 'new_question_link' %>
+        <%= link_to_with_icon 'add', t('add_question'), '#', :id => 'new_question_link' %>
 
         <% f.fields_for :questions do |question_form| %>
           <%= render :partial => 'question', :locals => {:f => question_form } %>
