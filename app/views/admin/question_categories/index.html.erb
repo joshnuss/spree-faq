@@ -2,11 +2,9 @@
     <ul class='actions'>
       <li id="new_ot_link">
         <%= button_link_to_remote "New Category", 
-                                   {:url => new_object_url,
-                                    :method => :get,
-                                    :update => "new-category",
-                                    :before => "Element.hide('new_ot_link');Element.show('busy_indicator')",
-                                    :complete => "Element.hide('busy_indicator')"}, :icon => 'add' %>
+                         {:url => new_object_url, 
+                         :method => :get,
+                         :update => "new-category"}, :icon => 'add' %>
       </li> 
     </ul>
   <br class='clear' />
