@@ -1,0 +1,8 @@
+sales:
+  name: Sales
+
+shipping:
+  name: Shipping
+  
+billing:
+  name: Billing

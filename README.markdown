@@ -29,4 +29,6 @@ Editing FAQs
 Loading Sample FAQs
 =============
 
-rake spree:extensions:faq:load_samples
+There are sample FAQs loaded as part of the rake db:bootstrap task.  
+
+See the sample data in db/sample.

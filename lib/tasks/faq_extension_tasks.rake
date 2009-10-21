@@ -26,29 +26,7 @@ namespace :spree do
 
       desc "Loads sample FAQ questions"
       task :load_samples => :environment do
-        sales    = QuestionCategory.create! :name => 'Sales'
-        shipping = QuestionCategory.create! :name => 'Shipping'
-        billing  = QuestionCategory.create! :name => 'Billing'
-
-        sales.questions << Question.new(:question => 'How much does it cost?', 
-                                        :answer => 'Contact customer support')
-        sales.questions << Question.new(:question => 'Does it do X?', 
-                                        :answer => 'Duh')
-        sales.questions << Question.new(:question => 'Can I return it?', 
-                                        :answer => 'Maybe')
-
-        shipping.questions << Question.new(:question => 'How much does shipping cost?', 
-                                           :answer => 'Contact customer support')
-        shipping.questions << Question.new(:question => 'What if it breaks?', 
-                                           :answer => 'At your own risk')
-
-        billing.questions << Question.new(:question => 'Can I use VISA?', 
-                                          :answer => 'Yes!')
-        billing.questions << Question.new(:question => 'Can I use PayPal?', 
-                                          :answer => 'Yes!')
-        billing.questions << Question.new(:question => 'Can I use AMEX?', 
-                                          :answer => 'Yes!')
-        puts "Sample questions loaded"
+        puts "Call rake db:bootstrap to load sample FAQ"
       end
     end
   end
