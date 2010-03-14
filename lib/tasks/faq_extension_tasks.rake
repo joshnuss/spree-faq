@@ -1,10 +1,12 @@
+if Spree::Version::Major.to_i == 0 && Spree::Version::Minor.to_i < 9 && Spree::Version::Tiny.to_i <= 9
   namespace :db do
-  desc "Bootstrap your database for Spree."
-  task :bootstrap  => :environment do
-    # load initial database fixtures (in db/sample/*.yml) into the current environment's database
-    ActiveRecord::Base.establish_connection(RAILS_ENV.to_sym)
-    Dir.glob(File.join(FaqExtension.root, "db", 'sample', '*.{yml,csv}')).each do |fixture_file|
-      Fixtures.create_fixtures("#{FaqExtension.root}/db/sample", File.basename(fixture_file, '.*'))
+    desc "Bootstrap your database for Spree."
+    task :bootstrap  => :environment do
+      # load initial database fixtures (in db/sample/*.yml) into the current environment's database
+      ActiveRecord::Base.establish_connection(RAILS_ENV.to_sym)
+      Dir.glob(File.join(FaqExtension.root, "db", 'sample', '*.{yml,csv}')).each do |fixture_file|
+        Fixtures.create_fixtures("#{FaqExtension.root}/db/sample", File.basename(fixture_file, '.*'))
+      end
     end
   end
 end
@@ -23,11 +25,6 @@ namespace :spree do
           cp file, RAILS_ROOT + path
         end
       end  
-
-      desc "Loads sample FAQ questions"
-      task :load_samples => :environment do
-        puts "Call rake db:bootstrap to load sample FAQ"
-      end
     end
   end
 end
