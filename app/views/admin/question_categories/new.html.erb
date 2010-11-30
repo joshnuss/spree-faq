@@ -1,11 +1,11 @@
-<%= error_messages_for :question_category %>
-<% form_for @question_category, :url => collection_path do |f| %>
+<%= form_for @question_category, :url => collection_path do |f| %>
+  <%= render "shared/error_messages", :target => f.object %>
   <fieldset>
-      <% f.field_container :name do %>
+      <%= f.field_container :name do %>
           <%= f.label :name, t("name") %> <span class="required">*</span><br />
           <%= f.text_field :name, :class => 'fullwidth title'  %>  
           <%= f.error_message_on :name %>
       <% end %>
-      <%= f.submit t("create_category") %>
+      <%= render :partial => 'admin/shared/new_resource_links' %>
   </fieldset>
 <% end %>

@@ -1,5 +1,7 @@
-map.resources :faq, :controller => 'faqs'
+Rails.application.routes.draw do
+  match :faq, :to => 'faqs#index', :as => 'faq'
 
-map.namespace :admin do |admin|
-  admin.resources :question_categories
+  namespace :admin do 
+    resources :question_categories
+  end
 end

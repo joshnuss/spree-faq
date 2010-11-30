@@ -5,10 +5,6 @@ class FaqsController < Spree::BaseController
     @categories = QuestionCategory.all :include => :questions
   end
 
-  def show
-    @question = Question.find(params[:id])
-  end
-
   def default_title
     I18n.t 'frequently_asked_questions'
   end

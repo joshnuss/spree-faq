@@ -2,13 +2,14 @@
   <%= javascript_include_tag 'jquery.scrollTo-min' %>
   <%= stylesheet_link_tag 'spree_faq' %>
 <% end %>
-<% form_for @question_category, :url => object_path do |f| %>
-  <% javascript_tag do %>
+<%= form_for @question_category, :url => object_path do |f| %>
+  <%= render "shared/error_messages", :target => f.object %>
+  <%= javascript_tag do %>
      var new_question_html = '<%= generate_template(f, :questions) %>';
 
      jQuery(document).ready(function($) {
         $('#new_question_link').click(function() {
-          $('#questions').append(new_question_html);
+          $('#questions').append(new_question_html.replace(/NEW_RECORD/g, $('#questions .question').size()));
           $('#questions .question:last .remove').click(function() {
             $(this).parent('.question').remove();
           });
@@ -24,7 +25,7 @@
   <div class="yui-gc">
     <div class="yui-u first">
 
-      <% f.field_container :name do %>
+      <%= f.field_container :name do %>
           <%= f.label :name, t("category_name") %> <span class="required">*</span><br />
           <%= f.text_field :name, :class => 'fullwidth title'  %>  
           <%= f.error_message_on :name %>
@@ -34,12 +35,12 @@
         <h2>Questions</h2>
         <%= link_to_with_icon 'add', t('add_question'), '#', :id => 'new_question_link' %>
 
-        <% f.fields_for :questions do |question_form| %>
+        <%= f.fields_for :questions do |question_form| %>
           <%= render :partial => 'question', :locals => {:f => question_form } %>
         <% end %>
       </div>
 
-      <%= f.submit %>
+      <%= render :partial => 'admin/shared/edit_resource_links' %>
     </div>
   </div>
                                       

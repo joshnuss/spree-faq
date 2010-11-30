@@ -2,12 +2,14 @@
 
 <div id="faqs">
   <% @categories.each do |category| %>
-    <div id="<%= category.to_param -%>">
+    <div id="<%= dom_id category -%>" class="category">
       <h2><%= h category.name %></h2>
-      <ul id="answers">
+      <ul class="answers">
         <% category.questions.each do |question| %>
           <li>
-            <a class="question" id="question_<%= question.id -%>"><%= h question.question -%></a>
+            <a class="question" id="<%= dom_id question -%>" href="#<%= "answer_#{question.id}" %>">
+              <%= h question.question -%>
+            </a>
             <div class="answer" id="<%= "answer_#{question.id}"-%>">
               <%= question.answer %>
             </div>
@@ -18,9 +20,9 @@
   <% end %>
 </div>
 
-<% content_for :head do %>
-  <% javascript_tag do %>
-    $(document).ready(function() {
+<%= content_for :head do %>
+  <%= javascript_tag do %>
+    $(function() {
       $('.answer').hide();
       $('.question').click(function() {
         var id = $(this).attr('id').split('_')[1];
