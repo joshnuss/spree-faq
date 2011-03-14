@@ -6,9 +6,13 @@ An spree extension for managing FAQs
 Installation
 ============
 
-To install this gem, add it to your `Gemfile`
+To install this gem, add it to your `Gemfile`:
 
 `gem 'spree-faq'`
+
+and the run bundler:
+
+`bundle install`
 
 Now you are ready to migrate your database:
 
