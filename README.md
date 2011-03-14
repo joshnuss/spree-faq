@@ -14,6 +14,10 @@ Installation
 
 `bundle install`
 
+3) install it:
+
+`rails generate spree_faq:install`
+
 3) migrate your database:
 
 `rake db:migrate`
