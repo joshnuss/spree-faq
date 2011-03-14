@@ -12,8 +12,6 @@ script/extension install git://github.com/joshnuss/spree-faq.git
 
 rake db:migrate
 
-rake spree:extensions:faq:update
-
 Viewing FAQs
 ============
 
