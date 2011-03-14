@@ -6,16 +6,18 @@ An spree extension for managing FAQs
 Installation
 ============
 
-To install the extension use this command:
+To install this gem, add it to your `Gemfile`
 
-script/extension install git://github.com/joshnuss/spree-faq.git
+`gem 'spree-faq'`
 
-rake db:migrate
+Now you are ready to migrate your database:
+
+`rake db:migrate`
 
 Viewing FAQs
 ============
 
-http://yourdomain.tld/faq
+`http://yourdomain.tld/faq`
 
 Editing FAQs
 ===========
