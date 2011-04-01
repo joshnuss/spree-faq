@@ -8,7 +8,7 @@ Installation
 
 1) add the gem to your `Gemfile`:
 
-`gem 'spree-faq'`
+`gem 'spree_faq'`
 
 2) run bundler:
 
