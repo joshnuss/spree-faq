@@ -3,6 +3,11 @@ Spree Frequently Asked Question Extension
 
 An spree extension for managing FAQs
 
+Supported versions of Spree
+=========
+
+any version of Spree higher than 0.10.x 
+
 Installation
 ============
 
@@ -14,13 +19,9 @@ Installation
 
 `bundle install`
 
-3) install it:
-
-`rails generate spree_faq:install`
-
 3) migrate your database:
 
-`rake db:migrate`
+`rake railties:install:migrations db:migrate`
 
 Viewing FAQs
 ============

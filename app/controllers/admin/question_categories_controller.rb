@@ -4,7 +4,8 @@ class Admin::QuestionCategoriesController < Admin::BaseController
   helper 'spree/base'
 
   new_action.response do |format|
-    format.html {render :action => :new, :layout => false}
+    format.html 
+    format.js
   end
   update.response do |format|
     format.html { redirect_to admin_question_categories_path }

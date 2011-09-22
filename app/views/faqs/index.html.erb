@@ -19,15 +19,3 @@
     </div>
   <% end %>
 </div>
-
-<%= content_for :head do %>
-  <%= javascript_tag do %>
-    $(function() {
-      $('.answer').hide();
-      $('.question').click(function() {
-        var id = $(this).attr('id').split('_')[1];
-        $('#answer_' + id).slideToggle();
-      });
-    });
-  <% end %>
-<% end %>

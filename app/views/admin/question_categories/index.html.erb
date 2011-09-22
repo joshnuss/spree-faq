@@ -3,12 +3,12 @@
       <li id="new_question_category_link">
         <%= button_link_to t("new_question_category"), 
                          new_object_url, 
-                         {:remote => :true, :icon => 'add' } %>
+                         {:remote => :true, :icon => 'add', :id => 'admin_new_question_category' } %>
       </li> 
     </ul>
   <br class='clear' />
 </div>
-<div id="new_question_category"></div>
+<div id="new_question_category" data-hook></div>
 
 <h1><%= t("question_categories") %></h1>
 <table class="index">
