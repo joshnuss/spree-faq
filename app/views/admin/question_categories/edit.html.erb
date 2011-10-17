@@ -1,6 +1,6 @@
 <% content_for :head do %>
-  <%= javascript_include_tag 'jquery.scrollTo-min' %>
-  <%= stylesheet_link_tag 'spree_faq' %>
+  <%= javascript_include_tag 'admin/jquery.scrollTo-min' %>
+  <%= stylesheet_link_tag 'admin/spree_faq' %>
 <% end %>
 <%= form_for @question_category, :url => object_path do |f| %>
   <%= render "shared/error_messages", :target => f.object %>
