@@ -11,7 +11,7 @@
               <%= h question.question -%>
             </a>
             <div class="answer" id="<%= "answer_#{question.id}"-%>">
-              <%= question.answer %>
+              <%= raw question.answer %>
             </div>
           </li>
         <% end %>
