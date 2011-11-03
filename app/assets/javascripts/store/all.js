@@ -1,1 +1,1 @@
-//= require spree_faq 
+//= require store/spree_faq 
