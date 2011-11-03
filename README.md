@@ -37,7 +37,11 @@ Editing FAQs
 Running Specs
 ===========
 `git clone git://github.com/joshnuss/spree-faq.git`
+
 `gem install bundler`
+
 `bundle`
+
 `rake test_app`
+
 `rake spec`
