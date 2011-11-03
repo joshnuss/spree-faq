@@ -7,3 +7,4 @@ tmp
 spec/test_app
 spec/dummy
 .rvmrc
+pkg

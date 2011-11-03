@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_faq'
-  s.version     = '3.0.3'
+  s.version     = '3.0.4'
   s.summary     = 'Adds an easy faq page to your spree site'
   s.description = 'With this gem you get an faq page and the management tools to make it very easy to update your faq and reduce the demand on your sites customer service'
   s.required_ruby_version = '>= 1.8.7'
