@@ -1,4 +1,5 @@
-require File.dirname(__FILE__) + '/../../spec_helper'
+require 'spec_helper'
+require 'admin/question_categories_controller'
 
 describe Admin::QuestionCategoriesController do
 
