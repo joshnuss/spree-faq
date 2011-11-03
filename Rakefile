@@ -21,7 +21,7 @@ task :release do
 end
 
 desc "Default Task"
-task :default => [ :spec ]
+task :default => [ :test_app, :spec ]
 
 desc "Generates a dummy app for testing"
 task :test_app do
