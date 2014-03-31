@@ -1,0 +1,18 @@
+/*
+ *= require spree/frontend
+*/
+
+#questions .question {
+  margin-bottom: 1em;
+  padding: 1em;
+  border: solid 1px #ccc;
+
+  textarea, input {
+    width: 600px;
+  }
+
+  textarea {
+    height: 40px;
+    padding: 0;
+  }
+}

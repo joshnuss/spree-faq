@@ -1,7 +1,12 @@
 \#*
 *~
 .#*
+.sass-cache
 .DS_Store
+.bundle
+coverage
+Gemfile.lock
 tmp
-*.swp
-spec/test_app
+pkg
+spec/dummy
+.rvmrc

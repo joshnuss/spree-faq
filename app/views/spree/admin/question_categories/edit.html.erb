@@ -1,0 +1,38 @@
+<%= render 'spree/admin/shared/configuration_menu' %>
+
+<% content_for :page_title do %>
+  <%= Spree.t(:editing_category_questions, scope: :spree_faq) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <li>
+    <%= button_link_to Spree.t(:add_question, scope: :spree_faq), '#', icon: 'icon-plus', id: 'new_question_link' %>
+    <%= button_link_to Spree.t(:back_to_categories, scope: :spree_faq), spree.admin_question_categories_path, icon: 'icon-arrow-left' %>
+  </li>
+<% end %>
+
+<%= render 'spree/shared/error_messages', target: @question_category %>
+
+<%= form_for [:admin, @question_category] do |f| %>
+  <%= javascript_tag do %>
+     var new_question_html = '<%= generate_template(f, :questions) %>';
+  <% end %>
+  <div class="field">
+    <%= f.field_container :name do %>
+      <%= f.label :name, Spree.t(:category_name, scope: :spree_faq) %> <span class="required">*</span><br />
+      <%= f.text_field :name, class: 'fullwidth title' %>
+      <%= f.error_message_on :name %>
+    <% end %>
+  </div>
+  <div id="questions" style="margin-bottom: 20px">
+    <h3>Questions</h3>
+      <%= f.fields_for :questions do |question_form| %>
+        <%= render 'question', f: question_form %>
+      <% end %>
+  </div>
+  <div class="form-buttons filter-actions actions" data-hook="buttons">
+    <%= button Spree.t(:update), 'icon-refresh' %>
+    <span class="or"><%= Spree.t(:or) %></span>
+    <%= link_to_with_icon 'icon-remove', Spree.t(:cancel), admin_question_categories_url, class: 'button' %>
+  </div>
+<% end %>

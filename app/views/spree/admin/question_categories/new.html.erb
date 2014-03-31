@@ -1,0 +1,19 @@
+<%= render 'spree/admin/shared/configuration_menu' %>
+
+<% content_for :page_title do %>
+  <%= Spree.t(:new_question_category, scope: :spree_faq) %>
+<% end %>
+
+<%= render 'spree/shared/error_messages', target: @question_category %>
+<%= form_for [:admin, @question_category] do |f| %>
+  <fieldset class="no-border-top">
+      <%= f.field_container :name do %>
+          <%= f.label :name, Spree.t(:name) %> <span class="required">*</span><br />
+          <%= f.text_field :name, class: 'fullwidth title'  %>
+          <%= f.error_message_on :name %>
+      <% end %>
+      <div data-hook="buttons" class="filter-actions actions">
+      	<%= button Spree.t(:create), 'icon-ok' %>
+    	</div>
+  </fieldset>
+<% end %>

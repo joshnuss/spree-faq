@@ -1,38 +1,50 @@
-require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+require 'spec_helper'
 
-describe QuestionCategory do
-  before(:each) do
-    @valid_attributes = {
-      :name => "value for name",
-      :position => 1
-    }
+describe Spree::QuestionCategory do
+
+  let(:question_category) { create(:question_category) }
+  let(:valid_attributes)  { build(:question_category) }
+
+  subject { question_category }
+
+  context 'instance attributes' do
+    it 'create a new instance given valid attributes' do
+      Spree::QuestionCategory.create!(name: valid_attributes.name)
+    end
   end
 
-  it "should create a new instance given valid attributes" do
-    QuestionCategory.create!(@valid_attributes)
+  context 'factory' do
+    it 'is valid' do
+      expect(build(:question_category).valid?).to be_true
+    end
   end
 
-  it "should have questions" do
-    cat = QuestionCategory.create!(@valid_attributes)
-    cat.questions.should_not be_nil
+  context 'relation' do
+    it { should have_many(:questions) }
+
+    it 'have questions' do
+      expect(subject.questions).not_to be_nil
+    end
   end
 
-  it "should require a name" do
-    category = QuestionCategory.create(@valid_attributes.except(:name))
-    category.should have(1).error_on(:name)
+  context 'validation' do
+    it { should validate_presence_of(:name) }
+    it { should validate_uniqueness_of(:name) }
+
+    it 'is invalid without a name' do
+      expect(build(:question_category, name: nil)).not_to be_valid
+    end
   end
 
-  it "should act like a list" do
-    category = QuestionCategory.create(@valid_attributes.merge(:name => 'test'))
-    QuestionCategory.create(@valid_attributes)
-    
-    category.move_to_bottom
-    category.position.should eql(2)
-  end
+  context 'acts as list' do
 
-  it "should require a unique name" do
-    QuestionCategory.create(@valid_attributes)
-    category = QuestionCategory.create(@valid_attributes)
-    category.should have(1).error_on(:name)
+    before do
+      2.times { create(:question_category) }
+    end
+
+    it 'can have its position changed' do
+      subject.move_to_bottom
+      expect(subject.position).to eq(3)
+    end
   end
 end

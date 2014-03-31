@@ -1,0 +1,48 @@
+<%= render 'spree/admin/shared/configuration_menu' %>
+
+<% content_for :page_title do %>
+  <%= Spree.t(:question_categories, scope: :spree_faq) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <li id="new_question_category_link">
+    <%= button_link_to Spree.t(:new_question_category, scope: :spree_faq), new_admin_question_category_url,
+        { remote: true, icon: 'icon-plus', 'data-update' => 'new_question_category', id: 'new_question_category_link' } %>
+  </li>
+<% end %>
+
+<div id="new_question_category"></div>
+
+<% if @question_categories.any? %>
+<table class="index" id="listing_faq">
+  <colgroup>
+    <col style="width: 40%">
+    <col style="width: 40%">
+    <col style="width: 20%">
+  </colgroup>
+  <thead>
+    <tr data-hook="admin_faq_category_index_headers">
+      <th><%= Spree::QuestionCategory.model_name.human(count: 2) %></td>
+      <th><%= Spree::Question.model_name.human(count: 2) %></td>
+      <th data-hook="admin_faq_category_index_header_actions" class="actions"></th>
+    </tr>
+  <thead>
+  <tbody>
+    <% @question_categories.each do |category| %>
+      <tr id="<%= spree_dom_id category %>" data-hook="admin_faq_category_index_rows" class="<%= cycle('odd', 'even') %>">
+        <td class="align-center"><%= h category.name %></td>
+        <td class="align-center"><%= category.questions.count %></td>
+        <td data-hook="admin_faq_category_index_row_actions" class="actions">
+          <%= link_to_edit category, no_text: true %>
+          <%= link_to_delete category, no_text: true %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+  <div class="alpha twelve columns no-objects-found">
+    <%= Spree.t(:no_resource_found, resource: Spree::QuestionCategory.model_name.human(count: 2)) %>,
+    <%= link_to Spree.t(:add_one), spree.new_admin_question_category_path %>!
+  </div>
+<% end %>

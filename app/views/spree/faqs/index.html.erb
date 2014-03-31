@@ -1,0 +1,29 @@
+<h1><%= Spree.t(:frequently_asked_questions, scope: :spree_faq) %></h1>
+
+<div id="faqs">
+  <% @categories.each do |category| %>
+    <div id="<%= dom_id category -%>" class="category">
+      <h2><%= h category.name %></h2>
+      <ul class="answers">
+        <% category.questions.each do |question| %>
+          <li>
+            <a class="question" id="<%= dom_id question -%>" href="#<%= "answer_#{question.id}" %>">
+              <%= raw(question.question) -%>
+            </a>
+            <div class="answer" id="<%= "answer_#{question.id}"-%>">
+              <%= raw(question.answer) %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
+
+<% content_for :sidebar do %>
+  <% if defined? @products && defined? @taxon %>
+    <%= render 'spree/shared/filters' %>
+  <% elsif defined? @taxonomies %>
+    <%= render 'spree/shared/taxonomies' %>
+  <% end %>
+<% end %>
